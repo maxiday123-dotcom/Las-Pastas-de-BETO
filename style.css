@@ -1,14 +1,9 @@
+/* Para todo el cuerpo de la web */
 body {
-    /* Estilo general */
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif, sans-serif;
-    background-image: url('Italia.png');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-
+    background-color: #fdfbf7; /* Un crema cálido, súper legible */
+    color: #2c1b18;            /* Un marrón chocolate muy oscuro en vez de negro puro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* O la que estés usando */
 }
-
 header {
     /* imagen del logo */
     background-image: url('Logo-transp.png');
@@ -27,6 +22,12 @@ header {
     justify-content: flex-end;
     /* centra el menú horizontalmente */
     width: 100%;
+}
+
+/* El fondo oscuro solo para la barra de navegación (opcional) */
+header, nav {
+    background-color: #2c1b18;
+    color: #fdfbf7;
 }
 
 .text {
@@ -151,16 +152,13 @@ section {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.btn-reserva {
-    /* boton de reserva */
-    display: inline-block;
-    background-color: #556B2F;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    margin-top: 15px;
+/* Para los botones de "Reserva tu mesa" o "Reservar" */
+.btn-reserva, button {
+    background-color: #b33925; /* Rojo tomate italiano */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
 }
 
 .productos {
