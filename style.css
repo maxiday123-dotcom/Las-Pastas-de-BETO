@@ -1,422 +1,403 @@
-body {
-    /* Estilo general */
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif, sans-serif;
-    background-image: url('Italia.png');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
 
-}
+<!DOCTYPE html>
+<html lang="es">
 
-header {
-    /* imagen del logo */
-    background-image: url('Logo-transp.png');
-    /* tu logo como fondo */
-    background-repeat: no-repeat;
-    /* evita que se repita el logo */
-    background-position: center;
-    /* centra el logo */
-    background-size: cover;
-    /* el logo ocupa todo el header */
-    height: 350px;
-    /* ajustá la altura según el tamaño del logo */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    /* centra el menú horizontalmente */
-    width: 100%;
-}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Las Pastas de Beto</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-.text {
-    /* Texto de bienvenida */
-    background-color: #6b42269d;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    color: #ffffff;
-    font-size: 36px;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    letter-spacing: 5px;
-}
+</head>
 
-.descripcion1 {
-    /* Descripción del restaurante */
-    background-color: #6b42269d;
-    padding: 35px;
-    text-align: left;
-    color: white;
-    font-size: 19px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+<body>
 
-}
+  <!-- Encabezado -->
+  <header></header>
 
-.descripcion2 {
-    /* Descripción del restaurante */
-    background-color: #6b42268a;
-    padding: 35px;
-    text-align: left;
-    color: white;
-    font-size: 19px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+  <nav class="nav-menu">
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
+    <div class="menu-links">
+      <a href="#platos">Menú</a>
+      <a href="#galeria">Nuestro Local</a>
+      <a href="#historia">Quiénes somos</a>
+      <a href="#takeaway" class="carrito" id="carrito">🥡 Pedido <span id="cart-count">0</span></a>
+      <button type="button" class="reset" onclick="resetCart()">Limpiar pedido</button>
+      <a href="#reserva" class="btn-reserva">Reserva tu mesa ahora</a>
+    </div>
+    <p class="contador" id="cart-details">No hay productos seleccionados.</p>
+  </nav>
 
-}
 
-.nav-menu {
-    display: contents;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: center;
-    background-color: rgba(85, 107, 47, 0.342);
-    color: white;
-    padding: 15px 20px;
-    border-radius: 15px;
-    margin-top: 20px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    position:absolute ;
-}
+  <!-- Contenido principal -->
+  <main>
+    <!-- Bienvenida -->
+    <section>
+      <h1 class="text" id="Bienvenido">Bienvenidos a Las Pastas de BETO</h1>
+      <p class="descripcion1" id="descripcion1">
+        Las pastas de Beto son mucho más que una pasta: representan la unión de la familia y el valor de las
+        tradiciones.
+        <br>
+        Cada receta nace del cariño transmitido de generación en generación, con el sabor casero que convierte cada
+        encuentro en un buen momento compartido.
+        <br>
+        Alrededor de la mesa, las pastas se transforman en símbolo de alegría, compañía y recuerdos que perduran.
+      </p>
+    </section>
 
-.menu-links {
-    display: flex-end;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: flex-end;
-    justify-content: center;
-    width: auto;
-}
+    <!-- Galería de platos -->
+    <section id="platos" class="productos">
+      <h2>Nuestros Platos</h2>
 
-.menu-links a,
-.menu-links button {
-    background-color: rgba(85, 107, 47, 0.233);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 10px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    border: none;
-    cursor: pointer;
-}
+      <p class="takeaway-aviso">
+        🥡 ¿Querés pedir para llevar? Elegí tus platos y al final te armamos el resumen para enviar por WhatsApp.
+      </p>
 
-.menu-links a:hover,
-.menu-links button:hover {
-    background-color: rgba(255, 102, 0, 0.95);
-}
+      <div class="card">
+        <img src="Spaghetti Carbonara.png" alt="Spaghetti Carbonara">
+        <h3>Spaghetti Carbonara</h3>
+        <p>Pasta con panceta, huevo y queso parmesano.</p>
+      </div>
 
-.reset {
-    background-color: rgba(255, 102, 0, 0.85);
-}
+      <div class="card">
+        <img src="Fettuccine Alfredo.png" alt="Fettuccine Alfredo">
+        <h3>Fettuccine Alfredo</h3>
+        <p>Fettuccine con salsa cremosa de manteca y parmesano.</p>
+      </div>
 
-.reset:hover {
-    background-color: rgba(230, 85, 0, 0.95);
-}
+      <div class="card">
+        <img src="Lasagna Bolognese.png" alt="Lasagna Bolognese">
+        <h3>Lasagna Bolognese</h3>
+        <p>Capas de pasta con salsa boloñesa, bechamel y queso gratinado.</p>
+      </div>
 
-.contador {
-    background-color: rgba(0, 0, 0, 0.45);
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-    width: 100%;
-    max-width: 360px;
-    margin-top: 10px;
-}
+      <div class="card">
+        <img src="Penne Arrabbiata.png" alt="Penne Arrabbiata">
+        <h3>Penne Arrabbiata</h3>
+        <p>Penne con salsa de tomate picante y albahaca fresca.</p>
+      </div>
 
-.add-to-cart {
-    background-color: #556B2F;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 15px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s;
-}
+      <div class="card">
+        <img src="Ravioli de Espinaca y Ricotta.png" alt="Ravioli de Espinaca y Ricotta">
+        <h3>Ravioli de Espinaca y Ricotta</h3>
+        <p>Ravioles rellenos de espinaca y ricotta con salsa de tomate.</p>
+      </div>
 
-.add-to-cart:hover {
-    background-color: #ff6600;
-    transform: translateY(-2px);
-}
 
-.cart-summary {
-    width: auto;
-    background-color: transparent;
-    padding: 0;
-    border-radius: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-}
+      <div class="card">
+        <img src="Ravioli de Jamon y Queso.png" alt="Ravioli de Jamon y Queso">
+        <h3>Ravioli de Jamon y Queso</h3>
+        <p>Ravioles rellenos de jamón y queso con salsa de tomate y albahaca.</p>
+      </div>
+    </section>
 
-.cart-summary p {
-    margin: 0;
-    color: white;
-    font-size: 12px;
-    display: none;
-}
+    <!-- Pedidos para llevar -->
+    <section id="takeaway" class="takeaway">
+      <div class="takeaway-card">
+        <h2><i class="fa-solid fa-bag-shopping"></i> Pedidos para llevar</h2>
+        <p class="form-subtitle">Retirá tu pedido en el local, sin esperar mesa</p>
+        <div id="takeaway-summary" class="takeaway-summary">
+          <p>Todavía no agregaste platos. Volvé al menú y tocá <strong>"Agregar al pedido"</strong> en lo que quieras llevar.</p>
+        </div>
+        <button type="button" id="whatsappOrderBtn" class="btn-whatsapp" onclick="enviarPedidoWhatsApp()" disabled>
+          <i class="fa-brands fa-whatsapp"></i> Enviar pedido por WhatsApp
+        </button>
+        <p class="takeaway-nota">Te vamos a confirmar el tiempo de espera por WhatsApp antes de que vengas a retirarlo.</p>
+      </div>
+    </section>
 
-.cart-summary button {
-    display: none;
-}
+    <section id="galeria" class="galeria">
+  <h2 class="sobre-nosotros1">Conocé Nuestro Local</h2>
+  <div class="carousel" id="localCarousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide">
+        <img src="salon.png" alt="Salón principal">
+      </div>
+      <div class="carousel-slide">
+        <img src="barra.png" alt="Barra y vinos">
+      </div>
+      <div class="carousel-slide">
+        <img src="cocina.png" alt="Cocina italiana auténtica">
+      </div>
+      <div class="carousel-slide">
+        <img src="entrada1.png" alt="Entrada del restaurante">
+      </div>
+    </div>
+    <button class="carousel-btn prev" onclick="moverCarrusel(-1)" aria-label="Foto anterior">&#10094;</button>
+    <button class="carousel-btn next" onclick="moverCarrusel(1)" aria-label="Foto siguiente">&#10095;</button>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+  <div class="lightbox" id="carouselLightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" type="button" aria-label="Cerrar imagen">&times;</button>
+      <button class="lightbox-prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+      <img id="lightboxImage" src="" alt="Imagen ampliada del carrusel">
+      <button class="lightbox-next" type="button" aria-label="Siguiente imagen">&#10095;</button>
+    </div>
+  </div>
+</section>
 
-section {
-    color: rgb(247, 241, 241);
-    padding: 2rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
 
-.btn-reserva {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #556B2F;
-    color: white;
-    padding: 10px 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 10px;
-    margin-top: 10px;
-}
+    <!--Nuestra Historia-->
+    <section id="historia">
+      <h2 class="sobre-nosotros1">Nuestra Historia:</h2>
+      <p class="descripcion2">En Las pastas de Beto llevamos la pasión italiana directo a tu mesa. Cada plato está
+        preparado con recetas
+        tradicionales y
+        los mejores ingredientes frescos, para que disfrutes una experiencia auténtica, cálida y deliciosa.
+        <br>
+        Nuestro compromiso es que cada visita se convierta en un momento especial, lleno de sabor y hospitalidad.
+      </p>
+    </section>
 
-.productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 40px;
-    background-color: transparent;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+    <!-- Testimonios -->
+    <section class="section">
+      <h2>Lo que dicen nuestros clientes:</h2>
+      <div>
+        <blockquote class="testimonio">
+          <p>"La mejor pasta que probé en mi vida, auténtico sabor italiano."</p>
+          <cite>- María G.</cite>
+        </blockquote>
+        <blockquote class="testimonio">
+          <p>"Ambiente cálido y atención excelente, siempre vuelvo."</p>
+          <cite>- Juan P.</cite>
+        </blockquote>
+        <blockquote class="testimonio">
+          <p>"Los ravioles de ricota son un clásico, ¡imperdibles!"</p>
+          <cite>- Sofía R.</cite>
+        </blockquote>
+      </div>
+    </section>
 
-.productos h2 {
-    grid-column: 1 / -1;
-    text-align: center;
-    font-size: 40px;
-    background-color: #660202;
-    color: white;
-    padding: 10px;
-    text-decoration: underline;
-    border-radius: 10px;
-    margin-top: 20px;
-}
+    <!-- Formulario de contacto -->
+    <section class="reserva" id="reserva">
+      <div class="form-card">
+        <h2>🍝 Reserva tu mesa</h2>
+        <p class="form-subtitle">Asegura tu lugar en Las pastas de Beto</p>
+        <form action="https://formspree.io/f/xkojlwee" method="post" class="reservation-form">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+          </div>
 
-.card {
-    background: #fafafa;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 15px;
-    transition: transform 0.2s ease;
-}
+          <div class="form-group">
+            <label for="personas">Número de personas:</label>
+            <input type="number" id="personas" name="personas" min="1" placeholder="¿Cuántos serán?" required>
+          </div>
 
-.card:hover {
-    transform: scale(1.03);
-}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fecha">Fecha:</label>
+              <input type="date" id="fecha" name="fecha" required>
+            </div>
 
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-}
+            <div class="form-group">
+              <label for="hora">Hora:</label>
+              <input type="time" id="hora" name="hora" required>
+            </div>
+          </div>
 
-.card h3 {
-    margin-top: 10px;
-    font-size: 20px;
-    color: #333;
-}
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-check-circle"></i> Confirmar Reserva
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-.card p {
-    font-size: 16px;
-    color: #555;
-}
-
-.sobre-nosotros {
-    background-color: #6b42268a;
-    padding: 10px;
-    text-align: center;
-    color: white;
-    font-size: 36px;
-    text-decoration: underline;
-    border-radius: 10px;
-}
-
-.testimonio {
-    background-color: rgba(129, 22, 22, 0.479);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-}
-
-.hamburger {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-.menu-links.show {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-@media (max-width: 1024px) {
-    .productos {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  <!-- Pie de página -->
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p>© 2026 Restorán Las pastas de Beto - Todos los derechos reservados</p>
+  </footer>
+  <button id="backToTop" aria-label="Ir arriba" title="Ir arriba"><i class="fas fa-arrow-up"></i></button>
+  <script>
+    function toggleMenu() {
+      document.querySelector('.menu-links').classList.toggle('show');
     }
 
-    .text {
-        font-size: 32px;
-    }
-}
+    // ===== CARRITO / PEDIDO PARA LLEVAR =====
+    const cart = {};
+    const cartButton = document.getElementById('carrito');
+    const cartCountEl = document.getElementById('cart-count');
+    const cartDetailsEl = document.getElementById('cart-details');
+    const takeawaySummaryEl = document.getElementById('takeaway-summary');
+    const whatsappBtn = document.getElementById('whatsappOrderBtn');
 
-@media (max-width: 768px) {
-    .nav-menu {
-        align-items: flex-start;
-        padding: 20px 15px 15px;
-        min-height: 70px;
-    }
+    // ⚠️ REEMPLAZAR por el número real de WhatsApp del restorán (código de país + área, sin espacios ni "+")
+    const WHATSAPP_NUMBER = '5491100000000';
 
-    .hamburger {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        left: auto;
-        z-index: 10;
-    }
+    function updateCartUI() {
+      const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+      cartCountEl.innerText = totalItems;
 
-    .menu-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-        padding: 15px;
-        background-color: rgba(85, 107, 47, 0.95);
-        border-radius: 10px;
-        margin-top: 10px;
-    }
+      if (totalItems === 0) {
+        cartDetailsEl.innerHTML = 'No hay productos seleccionados.';
+        cartButton.classList.remove('has-items');
+        takeawaySummaryEl.innerHTML = '<p>Todavía no agregaste platos. Volvé al menú y tocá <strong>"Agregar al pedido"</strong> en lo que quieras llevar.</p>';
+        whatsappBtn.disabled = true;
+      } else {
+        const itemsHtml = Object.entries(cart)
+          .map(([name, qty]) => `<strong>${name}</strong>: ${qty}`)
+          .join('<br>');
+        cartDetailsEl.innerHTML = `Productos seleccionados:<br>${itemsHtml}`;
+        cartButton.classList.add('has-items');
 
-    .menu-links.show {
-        display: flex;
-        animation: fadeIn 0.3s ease-in-out;
+        const listaHtml = Object.entries(cart)
+          .map(([name, qty]) => `<li>${name} <span class="qty-tag">x${qty}</span></li>`)
+          .join('');
+        takeawaySummaryEl.innerHTML = `<ul class="takeaway-list">${listaHtml}</ul>`;
+        whatsappBtn.disabled = false;
+      }
     }
 
-    .menu-links a,
-    .menu-links button {
-        width: 100%;
+    function addToCart(name) {
+      cart[name] = (cart[name] || 0) + 1;
+      updateCartUI();
     }
 
-    .contador {
-        width: 100%;
-        max-width: none;
-        margin-top: 70px;
+    function resetCart() {
+      Object.keys(cart).forEach(key => delete cart[key]);
+      updateCartUI();
     }
 
-    .productos {
-        padding: 30px 20px;
-        gap: 18px;
+    document.querySelectorAll('.productos .card').forEach(card => {
+      const title = card.querySelector('h3')?.innerText;
+      if (!title) return;
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'add-to-cart';
+      button.innerText = 'Agregar al pedido';
+      button.addEventListener('click', () => addToCart(title));
+
+      card.appendChild(button);
+    });
+
+    function enviarPedidoWhatsApp() {
+      const items = Object.entries(cart);
+      if (items.length === 0) return;
+
+      let mensaje = 'Hola! Quiero hacer un pedido para llevar 🥡\n\n';
+      items.forEach(([name, qty]) => {
+        mensaje += `• ${name} x${qty}\n`;
+      });
+      mensaje += '\n¿Me confirman el tiempo de espera para retirarlo? ¡Gracias!';
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
     }
 
-    section {
-        padding: 1.5rem 1rem;
-    }
-}
+    updateCartUI();
 
-@media (max-width: 576px) {
-    header {
-        min-height: 280px;
-        padding: 20px 15px 15px;
-    }
+    // ===== CARRUSEL DEL LOCAL =====
+    const track = document.getElementById('carouselTrack');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dotsContainer = document.getElementById('carouselDots');
+    let slideActual = 0;
+    let autoplayInterval;
 
-    .text {
-        font-size: 26px;
-        letter-spacing: 3px;
-    }
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Ir a la foto ${i + 1}`);
+      dot.addEventListener('click', () => irASlide(i));
+      dotsContainer.appendChild(dot);
+    });
+    const dots = document.querySelectorAll('.dot');
 
-    .descripcion1,
-    .descripcion2,
-    .sobre-nosotros,
-    .testimonio,
-    .reserva {
-        padding: 20px;
-    }
-
-    .productos {
-        padding: 20px 15px;
+    function irASlide(index) {
+      slideActual = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${slideActual * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === slideActual));
     }
 
-    .card img {
-        height: 160px;
-    }
-}
-
-
-.galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.galeria-grid img {
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-
-blockquote {
-    background: #fff8f0;
-    padding: 15px;
-    border-left: 5px solid #b22222;
-    border-radius: 8px;
-    font-style: italic;
-}
-
-.reserva {
-    text-align: center;
-    background-color: #333;
-    font-size: 20px;
-    font-style: italic;
-}
-
-@media (min-width: 768px) {
-    .contacto {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-}
-
-/* Animación suave */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
+    function abrirLightbox(index) {
+      irASlide(index);
+      lightboxImage.src = slides[slideActual].querySelector('img').src;
+      lightboxImage.alt = slides[slideActual].querySelector('img').alt;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    function cerrarLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
     }
-}
+
+    function moverLightbox(direccion) {
+      abrirLightbox(slideActual + direccion);
+    }
+
+    function moverCarrusel(direccion) {
+      irASlide(slideActual + direccion);
+      reiniciarAutoplay();
+    }
+
+    function iniciarAutoplay() {
+      autoplayInterval = setInterval(() => irASlide(slideActual + 1), 8000);
+    }
+
+    function reiniciarAutoplay() {
+      clearInterval(autoplayInterval);
+      iniciarAutoplay();
+    }
+
+    const lightbox = document.getElementById('carouselLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    const trackImages = document.querySelectorAll('.carousel-slide img');
+
+    trackImages.forEach((img, i) => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => abrirLightbox(i));
+    });
+
+    lightboxClose.addEventListener('click', cerrarLightbox);
+    lightboxPrev.addEventListener('click', () => moverLightbox(-1));
+    lightboxNext.addEventListener('click', () => moverLightbox(1));
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) cerrarLightbox();
+    });
+
+    window.addEventListener('keydown', (event) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (event.key === 'Escape') cerrarLightbox();
+      if (event.key === 'ArrowRight') moverLightbox(1);
+      if (event.key === 'ArrowLeft') moverLightbox(-1);
+    });
+
+    const carouselEl = document.getElementById('localCarousel');
+    carouselEl.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    carouselEl.addEventListener('mouseleave', iniciarAutoplay);
+
+    iniciarAutoplay();
+
+    // Botón "Ir arriba"
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      const toggleBackToTop = () => {
+        if (window.scrollY > 300) backToTop.classList.add('visible');
+        else backToTop.classList.remove('visible');
+      };
+
+      window.addEventListener('scroll', toggleBackToTop);
+      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      backToTop.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); backToTop.click(); } });
+      toggleBackToTop();
+    }
+  </script>
+
+</body>
+
+</html>
