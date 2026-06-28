@@ -4,145 +4,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Las Pastas de Beto</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Las Pastas de Beto | Pastas artesanales online</title>
 
+  <!-- SEO básico -->
+  <meta name="description"
+    content="Las Pastas de Beto: pastas artesanales italianas. Mirá el menú, agregá platos al carrito y hacé tu pedido online para retirar en el local.">
+  <meta name="keywords" content="pastas, comida italiana, ravioles, lasagna, restaurante, pedidos online, Buenos Aires">
+  <meta name="author" content="Las Pastas de Beto">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Las Pastas de Beto">
+  <meta property="og:description" content="Pastas artesanales italianas. Pedí online y retirá en el local.">
+  <meta property="og:image" content="Logo-transp.png">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-  <!-- Encabezado -->
-  <header></header>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-  <nav class="nav-menu">
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
-    <div class="menu-links">
-      <a href="#platos">Menú</a>
-      <a href="#galeria">Nuestro Local</a>
-      <a href="#historia">Quiénes somos</a>
-      <a href="#takeaway" class="carrito" id="carrito">🥡 Pedido <span id="cart-count">0</span></a>
-      <button type="button" class="reset" onclick="resetCart()">Limpiar pedido</button>
-      <a href="#reserva" class="btn-reserva">Reserva tu mesa ahora</a>
-    </div>
-    <p class="contador" id="cart-details">No hay productos seleccionados.</p>
+  <nav class="nav-menu" aria-label="Navegación principal">
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">☰</button>
+    <ul class="menu-links" id="menuLinks">
+      <li><a href="#inicio" data-translate="Inicio">Inicio</a></li>
+      <li><a href="#platos" data-translate="Productos">Productos</a></li>
+      <li><a href="#galeria" data-translate="Nuestro Local">Nuestro Local</a></li>
+      <li><a href="#historia" data-translate="Quiénes somos">Quiénes somos</a></li>
+      <li><a href="#resenas" data-translate="Reseñas">Reseñas</a></li>
+      <li><a href="#contacto" data-translate="Contacto">Contacto</a></li>
+      <li><a href="#carrito" class="carrito" id="cartLink" data-translate="Carrito">🛒 Carrito <span
+            id="cart-count">0</span></a></li>
+      <li><button type="button" class="reset" id="resetCartBtn" data-translate="Vaciar carrito">Vaciar carrito</button>
+      </li>
+    </ul>
   </nav>
 
+  <!-- Botones de traducción -->
+  <div class="translation-buttons">
+    <button class="btn-translate btn-spanish" id="btnSpanish" aria-label="Cambiar a español">
+      <i class="fas fa-globe"></i> Español
+    </button>
+    <button class="btn-translate btn-italian" id="btnItalian" aria-label="Cambiar a italiano">
+      <i class="fas fa-globe"></i> Italiano
+    </button>
+  </div>
+
+  <!-- Encabezado -->
+  <header>
+
+  </header>
 
   <!-- Contenido principal -->
-  <main>
+  <main id="contenido">
     <!-- Bienvenida -->
-    <section>
-      <h1 class="text" id="Bienvenido">Bienvenidos a Las Pastas de BETO</h1>
-      <p class="descripcion1" id="descripcion1">
-        Las pastas de Beto son mucho más que una pasta: representan la unión de la familia y el valor de las
+    <section id="inicio">
+      <h1 class="descripcion1" id="descripcion1">
+        Il Sogno Italiano "El Sueño Italiano" son mucho más que una pasta: representan la unión de la familia y el valor
+        de las
         tradiciones.
         <br>
         Cada receta nace del cariño transmitido de generación en generación, con el sabor casero que convierte cada
         encuentro en un buen momento compartido.
         <br>
         Alrededor de la mesa, las pastas se transforman en símbolo de alegría, compañía y recuerdos que perduran.
-      </p>
+      </h1>
     </section>
 
-    <!-- Galería de platos -->
-    <section id="platos" class="productos">
-      <h2>Nuestros Platos</h2>
+    <!-- Carta digital de platos (cargados dinámicamente con fetch) -->
+    <section id="platos" class="menu-digital">
+      <h2 class="sobre-nosotros1" data-translate="Nuestros Platos">Nuestros Platos</h2>
 
-      <p class="takeaway-aviso">
-        🥡 ¿Querés pedir para llevar? Elegí tus platos y al final te armamos el resumen para enviar por WhatsApp.
+      <p class="takeaway-aviso menu-digital-aviso"
+        data-translate="📖 Tocá un plato para agregarlo a tu pedido. Tocalo de nuevo para sumar otra unidad.">
+        📖 Tocá un plato para agregarlo a tu pedido. Tocalo de nuevo para sumar otra unidad.
       </p>
 
-      <div class="card">
-        <img src="Spaghetti Carbonara.png" alt="Spaghetti Carbonara">
-        <h3>Spaghetti Carbonara</h3>
-        <p>Pasta con panceta, huevo y queso parmesano.</p>
-      </div>
-
-      <div class="card">
-        <img src="Fettuccine Alfredo.png" alt="Fettuccine Alfredo">
-        <h3>Fettuccine Alfredo</h3>
-        <p>Fettuccine con salsa cremosa de manteca y parmesano.</p>
-      </div>
-
-      <div class="card">
-        <img src="Lasagna Bolognese.png" alt="Lasagna Bolognese">
-        <h3>Lasagna Bolognese</h3>
-        <p>Capas de pasta con salsa boloñesa, bechamel y queso gratinado.</p>
-      </div>
-
-      <div class="card">
-        <img src="Penne Arrabbiata.png" alt="Penne Arrabbiata">
-        <h3>Penne Arrabbiata</h3>
-        <p>Penne con salsa de tomate picante y albahaca fresca.</p>
-      </div>
-
-      <div class="card">
-        <img src="Ravioli de Espinaca y Ricotta.png" alt="Ravioli de Espinaca y Ricotta">
-        <h3>Ravioli de Espinaca y Ricotta</h3>
-        <p>Ravioles rellenos de espinaca y ricotta con salsa de tomate.</p>
-      </div>
-
-
-      <div class="card">
-        <img src="Ravioli de Jamon y Queso.png" alt="Ravioli de Jamon y Queso">
-        <h3>Ravioli de Jamon y Queso</h3>
-        <p>Ravioles rellenos de jamón y queso con salsa de tomate y albahaca.</p>
-      </div>
-    </section>
-
-    <!-- Pedidos para llevar -->
-    <section id="takeaway" class="takeaway">
-      <div class="takeaway-card">
-        <h2><i class="fa-solid fa-bag-shopping"></i> Pedidos para llevar</h2>
-        <p class="form-subtitle">Retirá tu pedido en el local, sin esperar mesa</p>
-        <div id="takeaway-summary" class="takeaway-summary">
-          <p>Todavía no agregaste platos. Volvé al menú y tocá <strong>"Agregar al pedido"</strong> en lo que quieras llevar.</p>
+      <div class="libro-wrapper">
+        <div id="productosContainer" class="libro">
+          <p class="productos-loading">Cargando menú...</p>
         </div>
-        <button type="button" id="whatsappOrderBtn" class="btn-whatsapp" onclick="enviarPedidoWhatsApp()" disabled>
-          <i class="fa-brands fa-whatsapp"></i> Enviar pedido por WhatsApp
+
+        <!-- Panel "Tu Pedido": se actualiza solo al elegir platos -->
+        <aside class="tu-pedido" id="tuPedidoPanel" aria-live="polite">
+          <h3 data-translate="Tu Pedido">Tu Pedido</h3>
+          <p class="tu-pedido-subtitulo" data-translate="Platos seleccionados:">Platos seleccionados:</p>
+          <ul id="tuPedidoLista">
+            <li class="tu-pedido-vacio" data-translate="Todavía no elegiste ningún plato">Todavía no elegiste ningún
+              plato</li>
+          </ul>
+          <a href="#carrito" class="tu-pedido-link" data-translate="Ver carrito completo →">Ver carrito completo →</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Carrito de compras -->
+    <section id="carrito" class="takeaway">
+      <div class="takeaway-card">
+        <h2 data-translate="Tu Carrito"><i class="fa-solid fa-cart-shopping"></i> Tu Carrito</h2>
+        <p class="form-subtitle" data-translate="Revisá, editá cantidades y confirmá tu pedido">Revisá, editá cantidades
+          y confirmá tu pedido</p>
+
+        <div id="cartItemsList" class="cart-items-list">
+          <p class="carrito-vacio">Todavía no agregaste platos. Volvé al menú y tocá <strong>"Agregar al
+              carrito"</strong> en lo que quieras.</p>
+        </div>
+
+        <div class="cart-total-row">
+          <span>Total:</span>
+          <span id="cartTotal">$0</span>
+        </div>
+
+        <button type="button" id="emptyCartBtn" class="reset cart-empty-btn" data-translate="Vaciar carrito">Vaciar
+          carrito</button>
+
+        <button type="button" id="whatsappOrderBtn" class="btn-whatsapp" disabled>
+          <i class="fa-brands fa-whatsapp"></i> Confirmar pedido por WhatsApp
         </button>
-        <p class="takeaway-nota">Te vamos a confirmar el tiempo de espera por WhatsApp antes de que vengas a retirarlo.</p>
+        <p class="takeaway-nota">Te vamos a confirmar el tiempo de espera por WhatsApp antes de que vengas a retirarlo.
+        </p>
       </div>
     </section>
 
     <section id="galeria" class="galeria">
-  <h2 class="sobre-nosotros1">Conocé Nuestro Local</h2>
-  <div class="carousel" id="localCarousel">
-    <div class="carousel-track" id="carouselTrack">
-      <div class="carousel-slide">
-        <img src="salon.png" alt="Salón principal">
+      <h2 class="sobre-nosotros1" data-translate="Conocé Nuestro Local">Nuestro Restaurante</h2>
+      <div class="carousel" id="localCarousel">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <img src="salon.png" alt="Salón principal">
+          </div>
+          <div class="carousel-slide">
+            <img src="barra.png" alt="Barra y vinos">
+          </div>
+          <div class="carousel-slide">
+            <img src="cocina.png" alt="Cocina italiana auténtica">
+          </div>
+          <div class="carousel-slide">
+            <img src="entrada1.png" alt="Entrada del restaurante">
+          </div>
+        </div>
+        <button class="carousel-btn prev" id="carouselPrevBtn" aria-label="Foto anterior">&#10094;</button>
+        <button class="carousel-btn next" id="carouselNextBtn" aria-label="Foto siguiente">&#10095;</button>
+        <div class="carousel-dots" id="carouselDots"></div>
       </div>
-      <div class="carousel-slide">
-        <img src="barra.png" alt="Barra y vinos">
+      <div class="lightbox" id="carouselLightbox" aria-hidden="true">
+        <div class="lightbox-content">
+          <button class="lightbox-close" type="button" aria-label="Cerrar imagen">&times;</button>
+          <button class="lightbox-prev" type="button" aria-label="Imagen anterior">&#10094;</button>
+          <img id="lightboxImage" src="" alt="Imagen ampliada del carrusel">
+          <button class="lightbox-next" type="button" aria-label="Siguiente imagen">&#10095;</button>
+        </div>
       </div>
-      <div class="carousel-slide">
-        <img src="cocina.png" alt="Cocina italiana auténtica">
-      </div>
-      <div class="carousel-slide">
-        <img src="entrada1.png" alt="Entrada del restaurante">
-      </div>
-    </div>
-    <button class="carousel-btn prev" onclick="moverCarrusel(-1)" aria-label="Foto anterior">&#10094;</button>
-    <button class="carousel-btn next" onclick="moverCarrusel(1)" aria-label="Foto siguiente">&#10095;</button>
-    <div class="carousel-dots" id="carouselDots"></div>
-  </div>
-  <div class="lightbox" id="carouselLightbox" aria-hidden="true">
-    <div class="lightbox-content">
-      <button class="lightbox-close" type="button" aria-label="Cerrar imagen">&times;</button>
-      <button class="lightbox-prev" type="button" aria-label="Imagen anterior">&#10094;</button>
-      <img id="lightboxImage" src="" alt="Imagen ampliada del carrusel">
-      <button class="lightbox-next" type="button" aria-label="Siguiente imagen">&#10095;</button>
-    </div>
-  </div>
-</section>
 
+      <!-- Multimedia: ubicación en mapa -->
+      <div class="mapa-container">
+        <h3 class="sobre-nosotros1" style="font-size:24px;" data-translate="¿Dónde estamos?">¿Dónde estamos?</h3>
+        <iframe src="https://www.google.com/maps?q=Buenos+Aires,+Argentina&output=embed"
+          title="Ubicación de Las Pastas de Beto" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
 
     <!--Nuestra Historia-->
     <section id="historia">
-      <h2 class="sobre-nosotros1">Nuestra Historia:</h2>
-      <p class="descripcion2">En Las pastas de Beto llevamos la pasión italiana directo a tu mesa. Cada plato está
+      <h2 class="sobre-nosotros1" data-translate="Nuestra Historia:">Nuestra Historia:</h2>
+      <p class="descripcion2">En Il Sogno Italiano llevamos la pasión italiana directo a tu mesa. Cada plato está
         preparado con recetas
         tradicionales y
         los mejores ingredientes frescos, para que disfrutes una experiencia auténtica, cálida y deliciosa.
@@ -151,10 +182,10 @@
       </p>
     </section>
 
-    <!-- Testimonios -->
-    <section class="section">
-      <h2>Lo que dicen nuestros clientes:</h2>
-      <div>
+    <!-- Reseñas -->
+    <section id="resenas" class="section">
+      <h2 data-translate="Lo que dicen nuestros clientes:" class="testimonio1">Lo que dicen nuestros clientes:</h2>
+      <div class="testimonios-grid">
         <blockquote class="testimonio">
           <p>"La mejor pasta que probé en mi vida, auténtico sabor italiano."</p>
           <cite>- María G.</cite>
@@ -171,36 +202,38 @@
     </section>
 
     <!-- Formulario de contacto -->
-    <section class="reserva" id="reserva">
+    <section class="reserva" id="contacto">
       <div class="form-card">
-        <h2>🍝 Reserva tu mesa</h2>
-        <p class="form-subtitle">Asegura tu lugar en Las pastas de Beto</p>
-        <form action="https://formspree.io/f/xkojlwee" method="post" class="reservation-form">
+        <h2 data-translate="🍝 Contacto">🍝 Contacto</h2>
+        <p class="form-subtitle" data-translate="Consultas, reservas o lo que necesites">Consultas, reservas o lo que
+          necesites</p>
+        <form id="contactForm" action="https://formspree.io/f/xkojlwee" method="post" class="reservation-form"
+          novalidate>
           <div class="form-group">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+            <span class="form-error" id="errorNombre"></span>
           </div>
 
           <div class="form-group">
-            <label for="personas">Número de personas:</label>
-            <input type="number" id="personas" name="personas" min="1" placeholder="¿Cuántos serán?" required>
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" placeholder="tu@email.com" required>
+            <span class="form-error" id="errorCorreo"></span>
           </div>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fecha">Fecha:</label>
-              <input type="date" id="fecha" name="fecha" required>
-            </div>
-
-            <div class="form-group">
-              <label for="hora">Hora:</label>
-              <input type="time" id="hora" name="hora" required>
-            </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje"
+              placeholder="Contanos tu consulta, o si querés reservar mesa contanos día, hora y cantidad de personas"
+              required></textarea>
+            <span class="form-error" id="errorMensaje"></span>
           </div>
 
           <button type="submit" class="btn-submit">
-            <i class="fas fa-check-circle"></i> Confirmar Reserva
+            <i class="fas fa-check-circle"></i> Enviar mensaje
           </button>
+
+          <p id="formMsg" class="form-msg" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -216,186 +249,8 @@
     <p>© 2026 Restorán Las pastas de Beto - Todos los derechos reservados</p>
   </footer>
   <button id="backToTop" aria-label="Ir arriba" title="Ir arriba"><i class="fas fa-arrow-up"></i></button>
-  <script>
-    function toggleMenu() {
-      document.querySelector('.menu-links').classList.toggle('show');
-    }
 
-    // ===== CARRITO / PEDIDO PARA LLEVAR =====
-    const cart = {};
-    const cartButton = document.getElementById('carrito');
-    const cartCountEl = document.getElementById('cart-count');
-    const cartDetailsEl = document.getElementById('cart-details');
-    const takeawaySummaryEl = document.getElementById('takeaway-summary');
-    const whatsappBtn = document.getElementById('whatsappOrderBtn');
-
-    // ⚠️ REEMPLAZAR por el número real de WhatsApp del restorán (código de país + área, sin espacios ni "+")
-    const WHATSAPP_NUMBER = '5491100000000';
-
-    function updateCartUI() {
-      const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
-      cartCountEl.innerText = totalItems;
-
-      if (totalItems === 0) {
-        cartDetailsEl.innerHTML = 'No hay productos seleccionados.';
-        cartButton.classList.remove('has-items');
-        takeawaySummaryEl.innerHTML = '<p>Todavía no agregaste platos. Volvé al menú y tocá <strong>"Agregar al pedido"</strong> en lo que quieras llevar.</p>';
-        whatsappBtn.disabled = true;
-      } else {
-        const itemsHtml = Object.entries(cart)
-          .map(([name, qty]) => `<strong>${name}</strong>: ${qty}`)
-          .join('<br>');
-        cartDetailsEl.innerHTML = `Productos seleccionados:<br>${itemsHtml}`;
-        cartButton.classList.add('has-items');
-
-        const listaHtml = Object.entries(cart)
-          .map(([name, qty]) => `<li>${name} <span class="qty-tag">x${qty}</span></li>`)
-          .join('');
-        takeawaySummaryEl.innerHTML = `<ul class="takeaway-list">${listaHtml}</ul>`;
-        whatsappBtn.disabled = false;
-      }
-    }
-
-    function addToCart(name) {
-      cart[name] = (cart[name] || 0) + 1;
-      updateCartUI();
-    }
-
-    function resetCart() {
-      Object.keys(cart).forEach(key => delete cart[key]);
-      updateCartUI();
-    }
-
-    document.querySelectorAll('.productos .card').forEach(card => {
-      const title = card.querySelector('h3')?.innerText;
-      if (!title) return;
-
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'add-to-cart';
-      button.innerText = 'Agregar al pedido';
-      button.addEventListener('click', () => addToCart(title));
-
-      card.appendChild(button);
-    });
-
-    function enviarPedidoWhatsApp() {
-      const items = Object.entries(cart);
-      if (items.length === 0) return;
-
-      let mensaje = 'Hola! Quiero hacer un pedido para llevar 🥡\n\n';
-      items.forEach(([name, qty]) => {
-        mensaje += `• ${name} x${qty}\n`;
-      });
-      mensaje += '\n¿Me confirman el tiempo de espera para retirarlo? ¡Gracias!';
-
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
-      window.open(url, '_blank');
-    }
-
-    updateCartUI();
-
-    // ===== CARRUSEL DEL LOCAL =====
-    const track = document.getElementById('carouselTrack');
-    const slides = document.querySelectorAll('.carousel-slide');
-    const dotsContainer = document.getElementById('carouselDots');
-    let slideActual = 0;
-    let autoplayInterval;
-
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', `Ir a la foto ${i + 1}`);
-      dot.addEventListener('click', () => irASlide(i));
-      dotsContainer.appendChild(dot);
-    });
-    const dots = document.querySelectorAll('.dot');
-
-    function irASlide(index) {
-      slideActual = (index + slides.length) % slides.length;
-      track.style.transform = `translateX(-${slideActual * 100}%)`;
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === slideActual));
-    }
-
-    function abrirLightbox(index) {
-      irASlide(index);
-      lightboxImage.src = slides[slideActual].querySelector('img').src;
-      lightboxImage.alt = slides[slideActual].querySelector('img').alt;
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function cerrarLightbox() {
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function moverLightbox(direccion) {
-      abrirLightbox(slideActual + direccion);
-    }
-
-    function moverCarrusel(direccion) {
-      irASlide(slideActual + direccion);
-      reiniciarAutoplay();
-    }
-
-    function iniciarAutoplay() {
-      autoplayInterval = setInterval(() => irASlide(slideActual + 1), 8000);
-    }
-
-    function reiniciarAutoplay() {
-      clearInterval(autoplayInterval);
-      iniciarAutoplay();
-    }
-
-    const lightbox = document.getElementById('carouselLightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const lightboxClose = document.querySelector('.lightbox-close');
-    const lightboxPrev = document.querySelector('.lightbox-prev');
-    const lightboxNext = document.querySelector('.lightbox-next');
-    const trackImages = document.querySelectorAll('.carousel-slide img');
-
-    trackImages.forEach((img, i) => {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', () => abrirLightbox(i));
-    });
-
-    lightboxClose.addEventListener('click', cerrarLightbox);
-    lightboxPrev.addEventListener('click', () => moverLightbox(-1));
-    lightboxNext.addEventListener('click', () => moverLightbox(1));
-    lightbox.addEventListener('click', (event) => {
-      if (event.target === lightbox) cerrarLightbox();
-    });
-
-    window.addEventListener('keydown', (event) => {
-      if (!lightbox.classList.contains('open')) return;
-      if (event.key === 'Escape') cerrarLightbox();
-      if (event.key === 'ArrowRight') moverLightbox(1);
-      if (event.key === 'ArrowLeft') moverLightbox(-1);
-    });
-
-    const carouselEl = document.getElementById('localCarousel');
-    carouselEl.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-    carouselEl.addEventListener('mouseleave', iniciarAutoplay);
-
-    iniciarAutoplay();
-
-    // Botón "Ir arriba"
-    const backToTop = document.getElementById('backToTop');
-    if (backToTop) {
-      const toggleBackToTop = () => {
-        if (window.scrollY > 300) backToTop.classList.add('visible');
-        else backToTop.classList.remove('visible');
-      };
-
-      window.addEventListener('scroll', toggleBackToTop);
-      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-      backToTop.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); backToTop.click(); } });
-      toggleBackToTop();
-    }
-  </script>
+  <script src="script.js"></script>
 
 </body>
 
